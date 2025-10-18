@@ -1,0 +1,11 @@
+name: Calcular 2 + 2
+on: push
+jobs: 
+ calcular: 
+  runs:on: ubuntu-latest
+steps:
+-name: Exibir cálculo 2 + 2
+run: NUM1=2
+     NUM2=2
+     RESULT=$((NUM1 + NUM2)) 
+echo: "0 resultado é: $RESULT"

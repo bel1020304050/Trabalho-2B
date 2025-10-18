@@ -1,0 +1,8 @@
+name: data e hora
+on: push
+jobs:
+  first-jobs:
+   runs on: ubuntu-latest
+steps:
+- name:  mostre data e hora
+  run: date 

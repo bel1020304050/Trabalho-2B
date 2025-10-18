@@ -1,0 +1,8 @@
+name: Imprimir usuario
+on: push
+jobs: 
+   first-jobs:
+    runs-on: ubuntu-latest
+    steps:
+    -name: listar arquivos do repositório
+    run: Is
