@@ -1,0 +1,36 @@
+name: Contagem diária de arquivos
+
+on:
+ schedule:
+ #Executa doso os dias á meia-noite (00:00 UTC)
+ - cron: "0 0 * * *"
+ workflow_dispatch: #permite rodar manualmente também
+
+
+jobs: 
+ contagem: 
+  runs-on: ubuntu-latest
+
+steps:
+- name: Checkout do repositório
+  uses: actions/checkout@v4
+
+- name: Mostar data e hora
+  run:
+   echo "Execução agendada ás:" 
+
+- name: Contar arquvios HTML,CSS e JS
+  id: contar
+  run:
+    HTML_COUNT=$(find . -type f -iname "*.html" ! -path "./.git/*" | wc -l)
+
+   CSS_COUNT=$(find . -type f -iname "*.html" ! -path "./.git/*" | wc -l)
+
+   JS_COUNT=$(find . -type f -iname "*.html" ! -path "./.git/*" | wc -l)
+
+   echo "html_count=${HTML_COUNT}" >> GITHUB_OUTPUT
+
+    echo "css_count=${HTML_COUNT}" >> GITHUB_OUTPUT
+    
+     echo "js_count=${HTML_COUNT}" >> GITHUB_OUTPUT
+    

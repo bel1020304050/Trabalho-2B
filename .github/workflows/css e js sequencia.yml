@@ -32,6 +32,5 @@ on:
          JS_COUNT=$(find . -type f -iname "*.js" ! -path "./.git/*" | wc -l)
          echo "Foram encontrados ${JS_COUNT}" >> $GITHUB_OUTPUT
 
-      - name: Exibir resultado final
-        run: |
+      
          
