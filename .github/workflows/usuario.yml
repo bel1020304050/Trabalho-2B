@@ -4,5 +4,5 @@ jobs:
    first-jobs:
     runs-on: ubuntu-latest
     steps:
-    -name: listar arquivos do repositório
+     - name: listar arquivos do repositório
     run: Is

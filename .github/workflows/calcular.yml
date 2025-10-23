@@ -4,7 +4,7 @@ jobs:
  calcular: 
   runs:on: ubuntu-latest
 steps:
--name: Exibir cálculo 2 + 2
+- name: Exibir cálculo 2 + 2
 run: NUM1=2
      NUM2=2
      RESULT=$((NUM1 + NUM2)) 

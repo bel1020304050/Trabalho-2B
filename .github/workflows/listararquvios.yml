@@ -6,8 +6,8 @@
     listar-arquivos:
      runs:on: ubuntu-latest
     steps:
-      -name: Baixar código do repositório
-      uses: actions/checkout@v3
+      - name: Baixar código do repositório
+    uses: actions/checkout@v3
 
-      -name: Listar todos os arquivos do repositório
-      run: Is-la
+    -name: Listar todos os arquivos do repositório
+    run: Is-la

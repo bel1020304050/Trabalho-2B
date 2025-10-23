@@ -1,0 +1,19 @@
+ name: agendamento_sabado
+
+ on:
+  schedule:
+   - cron: "0 10 ** 6" #executa aos sábados ás 10H
+     jobs: 
+      job-sabado:
+       runs-on: ubuntu-latest
+       steps:
+        - name: Verificar e rodar tarefa
+          run: |
+           ["$(date + %u)" -eq 6] &&
+           echo "Hoje é sábado,o job vai rodar!" || {echo "Não é sabádo, job não vai rodar."; exit 0;}
+        - name: Rodar tarefa principal
+       run: echo "Executando tarefa do sábado..."
+    
+
+ 
+
