@@ -1,0 +1,28 @@
+name: Inspecionar_repositorio(data, usuário,contagem de arquivos)
+on: 
+ push:
+   pull_request:
+   workflow_dispatch: 
+    jobs:
+      inspect: 
+        runs-on: ubuntu-latest
+        outputs:
+          date: $  {{ steps.set_outputs.outputs.date}}
+          actor: $ {{ steps.set_outputs.outputs.actor}}
+          last_commiter: $ {{ steps.set_outputs.outputs.last_commiter}}
+          html_count: $ {{steps.set_outputs.outputs.html_count}}
+          css_count: $ {{steps.set_outputs.outputs.css_count}}
+          js_count: $ {{steps.set_outputs.outputs.js_count}}
+
+          steps: 
+          - name: checkout do repositório
+            uses: actions/checkout@v4
+            with:
+              fetch_depth: 0
+          - name: Coletar usuário (actor) e último last_commiter
+            id: user_info
+            run:
+            - name: Contar arquivos HTML,CSS e js_count
+            id: counts
+            run:
+
