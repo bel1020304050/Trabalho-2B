@@ -1,0 +1,21 @@
+name: verificar arquivos_grandes
+on:
+ push:
+  branches:
+   - main:
+  jobs: 
+   checar-tamanho:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Fazer checkout dp repositório
+      uses: actions/checkout@v4
+
+    - name: Verificar se há arquivos maiores que 100KB
+      run: |
+       echo "Verificando arquivos maiores que 100KB..." 
+           arquivos=$(find . -type f -size + 100k)
+
+           if [ -n "$arquivos"]; then echo "ATENÇÃO! Foram encontrados arquivos maiores que 100 KB:"
+                      echo "$arquivos"
+                      else
+                       echo "Nenhum arquivo maior que 100 KB foi encontrado."
