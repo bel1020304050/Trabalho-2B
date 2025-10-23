@@ -1,0 +1,35 @@
+name: Contar arquvios CSS e JS (sem sequência)
+on:
+ push:
+ workflow_dispatch:
+
+ jobs:
+   mostrar-info:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Mostrar data e hora
+    run:
+     echo "Data e hora atual:" date
+   name: Mostar usuário do push
+   run:
+      echo "Usuário que fez o push $GITHUB_ACTOR"
+    echo "Último commiter:"
+    git log -1
+
+contar-css:
+ runs-on: ubuntu-latest
+ steps:
+ - name: Checkout do repositório
+   uses: actions checkout@v4
+   name:Contar arquivos CSS:
+   run:
+    echo "Contando arquivos CSS.."
+     CSS_COUNT=$(find . -type f -iname "*.css") ! -path "./git/*" wc -l 
+         echo "Foram encontrados ${CSS_COUNT} arquivos CSS."
+
+ - name: Contar arquivos JS
+id: js
+run:
+         echo "Contando arquivos JS.."
+         JS_COUNT=$(find . -type f -iname "*.js" ! -path "./.git/*" | wc -l)
+         echo "Foram encontrados ${JS_COUNT}" >> $GITHUB_OUTPUT     
