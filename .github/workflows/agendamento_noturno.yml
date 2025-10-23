@@ -1,0 +1,14 @@
+name: agendamento_noturno
+on:
+ schedule:
+   -cron: "0 21 ***"  # executa todos os dias ás 21h da noite
+jobs:
+  job-noturno: 
+   runs-on: ubuntu-latest
+   if: ${{ github.event_name === 'schedule'}}
+  steps: 
+    -name: Executar apenas á noite
+  run: echo "Este agendamento roda á noite!"
+   
+
+   

@@ -1,0 +1,18 @@
+ name: Contar arquvios HTML
+
+ on:
+  push:
+
+ jobs: 
+   contar-html:
+    runs:on: ubuntu-latest
+ steps: 
+  -name: Baixar código do repositório
+  uses: actions/checkout@v3
+
+  -name: Mostrar separador 
+  run: echo "=== CONTAGEM DE ARQUIVOS HTML ==="
+
+  -name: Contar arquivos .html
+  run:
+  echo: "Total de arquivos HTML"
